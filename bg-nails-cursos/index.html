@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BG Nails Cursos • Formación Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .stage-card {
+        transition: all 0.3s ease;
+      }
+      .stage-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+      }
+      .neon-pink {
+        text-shadow: 0 0 15px #ff4da6;
+      }
+      .modal {
+        animation: modalPop 0.3s ease forwards;
+      }
+      @keyframes modalPop {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-950 text-white min-h-screen">
+    <!-- HEADER -->
+    <!-- HEADER CON LOGO -->
+    <!-- HEADER PREMIUM - Logo horizontal centrado -->
+    <!-- HEADER PREMIUM - Logo + "by Brenda Gonzalez" -->
+    <header
+      class="bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800 sticky top-0 z-50"
+    >
+      <div class="max-w-6xl mx-auto px-6 py-5">
+        <div class="flex items-center justify-between relative">
+          <!-- Logo + By Brenda Gonzalez -->
+          <a
+            href="#"
+            class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center transition-all hover:scale-105"
+          >
+            <img
+              src="https://i.ibb.co/Kj3gntvf/Chat-GPT-Image-24-mar-2026-05-17-34-p-m-removebg-preview.png"
+              alt="BG Nails Cursos Logo"
+              class="h-16 md:h-20 w-auto object-contain drop-shadow-sm"
+            />
+
+            <p
+              class="text-[10px] md:text-xs tracking-widest text-zinc-400 font-medium mt-1.5"
+            >
+              BY BRENDA GONZALEZ
+            </p>
+          </a>
+
+          <!-- Botón Carrito -->
+          <button
+            onclick="openCart()"
+            class="ml-auto flex items-center gap-3 bg-zinc-800 hover:bg-zinc-700 px-6 py-3.5 rounded-3xl transition-all active:scale-95 shadow-lg"
+          >
+            <span class="text-2xl">🛒</span>
+            <span class="font-semibold text-sm md:text-base hidden sm:inline"
+              >Carrito</span
+            >
+            <span
+              id="cart-count"
+              class="bg-gradient-to-br from-pink-500 to-rose-600 text-white text-xs font-bold w-7 h-7 flex items-center justify-center rounded-full shadow-inner"
+            >
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="max-w-5xl mx-auto px-4 pt-8 pb-24">
+      <!-- HERO -->
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4 neon-pink">
+          Viví de las uñas
+        </h1>
+        <p class="text-2xl text-zinc-400 max-w-lg mx-auto">
+          Convertí tu pasión en un negocio real y rentable
+        </p>
+      </div>
+
+      <!-- CURSOS -->
+      <div id="cursos" class="grid md:grid-cols-2 gap-8">
+        <!-- Etapa 1 -->
+        <div
+          class="stage-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800"
+        >
+          <img
+            src="https://i.blogs.es/d6d82d/465166171_525345533746146_7347749838381787423_n-1-/840_560.jpeg"
+            alt="Etapa 1"
+            class="w-full h-75 object-cover"
+          />
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <h2 class="text-2xl font-semibold text-pink-400">
+                Etapa 1 — Inicio Profesional
+              </h2>
+              <div
+                class="bg-gradient-to-br from-pink-500 to-pink-600 text-white font-bold px-5 py-2 rounded-2xl text-lg"
+              >
+                $50.000
+              </div>
+            </div>
+            <p class="text-zinc-400 mb-6">
+              Empezá a trabajar desde la primera clase
+            </p>
+            <ul class="space-y-3 mb-8 text-zinc-300">
+              <li class="flex items-center gap-3">✔ Manicuría rusa</li>
+              <li class="flex items-center gap-3">✔ Preparación profesional</li>
+              <li class="flex items-center gap-3">✔ Semipermanente perfecto</li>
+              <li class="flex items-center gap-3">✔ Bioseguridad</li>
+            </ul>
+            <button
+              onclick="addToCart(1, 'Etapa 1 — Inicio Profesional', 50000)"
+              class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
+            >
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+
+        <!-- Etapa 2, 3 y 4 (igual que antes, solo cambio el onclick) -->
+        <div
+          class="stage-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800"
+        >
+          <img
+            src="https://scontent-eze1-2.cdninstagram.com/v/t51.82787-15/654471239_18070427690645279_1297656755544871344_n.webp?_nc_cat=107&ig_cache_key=MzQzNDAzNDE3NTkyNDQ4OTgxNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=ahbgq1Pqz1EQ7kNvwHNBAsM&_nc_oc=AdqXY2F4qB9dl_pz9SpgMqda-YAT0Pvuf3-TDd-7NBKKOg4JC3nMt_zX3pcfRz0lZh55-LmqlnZcm4IRO3ORhUxn&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-eze1-2.cdninstagram.com&_nc_gid=l1aagrQygvrPqdyfhPVdjQ&_nc_ss=7a32e&oh=00_AfyIXXeEbO6RUZmXVE47wrbkZL4g_h0reknAQmhw5yuH0Q&oe=69C8B779"
+            alt="Etapa 2"
+            class="w-full h-75 object-cover"
+          />
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <h2 class="text-2xl font-semibold text-pink-400">
+                Etapa 2 — Técnicas Avanzadas
+              </h2>
+              <div
+                class="bg-gradient-to-br from-pink-500 to-pink-600 text-white font-bold px-5 py-2 rounded-2xl text-lg"
+              >
+                $50.000
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 text-zinc-300">
+              <li class="flex items-center gap-3">✔ Gel, acrílico y polygel</li>
+              <li class="flex items-center gap-3">✔ Capping</li>
+              <li class="flex items-center gap-3">✔ Bases niveladoras</li>
+              <li class="flex items-center gap-3">✔ Tips</li>
+            </ul>
+            <button
+              onclick="addToCart(2, 'Etapa 2 — Técnicas Avanzadas', 50000)"
+              class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
+            >
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="stage-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800"
+        >
+          <img
+            src="https://scontent-eze1-2.cdninstagram.com/v/t51.75761-15/497402365_18044220803529898_4854036946600309267_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=100&ig_cache_key=MzYzMTE0MjE2NjA4MjU3ODgzOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=JTQ4sDdUrRAQ7kNvwFqRHwf&_nc_oc=AdqouJ56DQjLk3-eom8C1kVodaQRDQ6Jn48JwD3RanzyA4e8eF_hMjMtt6CsLWZPbe5Pp49ZeAUSFvMVFHq-T1Di&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-eze1-2.cdninstagram.com&_nc_gid=xLYYGcugmhxZGLui02pMbA&_nc_ss=7a32e&oh=00_AfwHD9X0y-34uPtX3jiA1CFs87M86PeGD8RfKPGxC7oRAw&oe=69C8C3C1"
+            alt="Etapa 3"
+            class="w-full h-75 object-cover"
+          />
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <h2 class="text-2xl font-semibold text-pink-400">
+                Etapa 3 — Nail Art Profesional
+              </h2>
+              <div
+                class="bg-gradient-to-br from-pink-500 to-pink-600 text-white font-bold px-5 py-2 rounded-2xl text-lg"
+              >
+                $50.000
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 text-zinc-300">
+              <li class="flex items-center gap-3">✔ Baby boomer</li>
+              <li class="flex items-center gap-3">✔ Encapsulados</li>
+              <li class="flex items-center gap-3">✔ Mármol y efectos</li>
+              <li class="flex items-center gap-3">✔ Acabado premium</li>
+            </ul>
+            <button
+              onclick="addToCart(3, 'Etapa 3 — Nail Art Profesional', 50000)"
+              class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
+            >
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="stage-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800"
+        >
+          <img
+            src="https://i.ibb.co/SDrG1741/MARKETING-NAILS.png"
+            alt="Etapa 4"
+            class="w-full h-75 object-cover"
+          />
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <h2 class="text-2xl font-semibold text-pink-400">
+                Etapa 4 — Cómo Monetizar
+              </h2>
+              <div
+                class="bg-gradient-to-br from-pink-500 to-pink-600 text-white font-bold px-5 py-2 rounded-2xl text-lg"
+              >
+                $50.000
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 text-zinc-300">
+              <li class="flex items-center gap-3">✔ Precios y ventas</li>
+              <li class="flex items-center gap-3">✔ Redes sociales</li>
+              <li class="flex items-center gap-3">✔ Fotografía profesional</li>
+              <li class="flex items-center gap-3">
+                ✔ Fidelización de clientas
+              </li>
+            </ul>
+            <button
+              onclick="addToCart(4, 'Etapa 4 — Cómo Monetizar', 50000)"
+              class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
+            >
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA FINAL -->
+      <div
+        class="mt-20 bg-gradient-to-br from-zinc-900 to-zinc-800 border border-pink-500/30 rounded-3xl p-12 text-center"
+      >
+        <p class="text-3xl font-semibold mb-3">
+          ¿Lista para vivir de las uñas?
+        </p>
+        <p class="text-zinc-400 text-xl mb-8">
+          Empezá a facturar desde la primera semana
+        </p>
+        <button
+          onclick="openCart()"
+          class="bg-pink-500 hover:bg-pink-600 text-white font-semibold text-lg px-12 py-5 rounded-3xl transition-all"
+        >
+          Ver mi carrito y comprar
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL DEL CARRITO -->
+    <div
+      id="cart-modal"
+      class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100] p-4"
+    >
+      <div
+        class="modal bg-zinc-900 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-hidden"
+      >
+        <!-- Header del modal -->
+        <div
+          class="flex items-center justify-between p-6 border-b border-zinc-800"
+        >
+          <h2 class="text-2xl font-semibold">Tu Carrito</h2>
+          <button
+            onclick="closeCart()"
+            class="text-3xl text-zinc-400 hover:text-white"
+          >
+            ×
+          </button>
+        </div>
+
+        <!-- Contenido del carrito -->
+        <div id="cart-items" class="p-6 overflow-y-auto max-h-[55vh] space-y-4">
+          <!-- Los items se agregan con JavaScript -->
+        </div>
+
+        <!-- Footer del carrito -->
+        <div class="p-6 border-t border-zinc-800">
+          <div class="flex justify-between text-xl font-semibold mb-6">
+            <span>Total:</span>
+            <span id="cart-total" class="text-pink-400">$0</span>
+          </div>
+
+          <button
+            onclick="buyWithWhatsApp()"
+            class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-5 rounded-3xl text-lg transition-all flex items-center justify-center gap-3"
+          >
+            <span>Comprar por WhatsApp</span>
+            <span class="text-2xl">💬</span>
+          </button>
+
+          <button
+            onclick="closeCart()"
+            class="w-full mt-3 text-zinc-400 hover:text-white py-3 text-sm"
+          >
+            Seguir explorando cursos
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let cart = [];
+
+      function addToCart(id, name, price) {
+        cart.push({ id, name, price });
+        updateCartCount();
+
+        // Notificación rápida
+        showToast(`${name} agregado al carrito`);
+      }
+
+      function updateCartCount() {
+        document.getElementById("cart-count").textContent = cart.length;
+      }
+
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className =
+          "fixed bottom-6 left-1/2 -translate-x-1/2 bg-zinc-800 border border-pink-500 text-white px-6 py-4 rounded-3xl shadow-2xl flex items-center gap-3 z-[200]";
+        toast.innerHTML = `<span class="font-medium">${message}</span>`;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.style.transition = "all 0.3s";
+          toast.style.opacity = "0";
+          setTimeout(() => toast.remove(), 300);
+        }, 2500);
+      }
+
+      function openCart() {
+        if (cart.length === 0) {
+          showToast("Tu carrito está vacío");
+          return;
+        }
+
+        const container = document.getElementById("cart-items");
+        container.innerHTML = "";
+
+        cart.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.className =
+            "flex justify-between items-center bg-zinc-800 rounded-2xl p-4";
+          div.innerHTML = `
+                    <div>
+                        <p class="font-medium">${item.name}</p>
+                        <p class="text-pink-400 font-semibold">$${item.price.toLocaleString("es-AR")}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" 
+                            class="text-red-400 hover:text-red-500 text-xl px-3 py-1">✕</button>
+                `;
+          container.appendChild(div);
+        });
+
+        // Total
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById("cart-total").textContent =
+          `$${total.toLocaleString("es-AR")}`;
+
+        document.getElementById("cart-modal").classList.remove("hidden");
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartCount();
+        openCart(); // refresca el modal
+      }
+
+      function closeCart() {
+        document.getElementById("cart-modal").classList.add("hidden");
+      }
+
+      function buyWithWhatsApp() {
+        if (cart.length === 0) return;
+
+        let message =
+          "Hola! Quiero comprar los siguientes cursos de BG Nails:\n\n";
+
+        cart.forEach((item) => {
+          message += `• ${item.name} - $${item.price.toLocaleString("es-AR")}\n`;
+        });
+
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        message += `\nTotal: $${total.toLocaleString("es-AR")}\n\n`;
+        message += "Me gustaría coordinar el pago y el acceso. ¡Gracias!";
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/5491131120869?text=${encodedMessage}`;
+
+        window.open(whatsappURL, "_blank");
+        closeCart();
+      }
+
+      // Cerrar modal con Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeCart();
+      });
+    </script>
+  </body>
+</html>
