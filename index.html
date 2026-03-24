@@ -136,6 +136,23 @@
           Convertí tu pasión en un negocio real y rentable
         </p>
       </div>
+      <!-- CONTADOR URGENCIA -->
+      <div
+        class="bg-gradient-to-r from-pink-600 to-rose-600 rounded-3xl p-6 mb-12 text-center shadow-xl"
+      >
+        <p class="text-lg md:text-xl font-semibold mb-2">
+          ⚠️ Inscripciones cierran en:
+        </p>
+        <div
+          id="countdown"
+          class="text-3xl md:text-4xl font-bold tracking-wide"
+        >
+          00d 00h 00m 00s
+        </div>
+        <p class="text-sm mt-2 opacity-90">
+          Últimos cupos disponibles — empezá ahora o perdés tu lugar
+        </p>
+      </div>
 
       <!-- CURSOS -->
       <div id="cursos" class="grid md:grid-cols-2 gap-8">
@@ -174,6 +191,12 @@
             >
               Agregar al carrito
             </button>
+            <p class="text-xs text-zinc-500 mt-4 leading-relaxed">
+              🛒 Agregá al carrito → Abrí tu carrito → Confirmá por WhatsApp 💬
+              <br />Te guiamos paso a paso para completar tu inscripción.
+            </p> al carrito
+            </button>
+            
           </div>
         </div>
 
@@ -207,6 +230,11 @@
               class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
             >
               Agregar al carrito
+            </button>
+            <p class="text-xs text-zinc-500 mt-4 leading-relaxed">
+              🛒 Agregá al carrito → Abrí tu carrito → Confirmá por WhatsApp 💬
+              <br />Te guiamos paso a paso para completar tu inscripción.
+            </p> al carrito
             </button>
           </div>
         </div>
@@ -242,6 +270,11 @@
               class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
             >
               Agregar al carrito
+            </button>
+            <p class="text-xs text-zinc-500 mt-4 leading-relaxed">
+              🛒 Agregá al carrito → Abrí tu carrito → Confirmá por WhatsApp 💬
+              <br />Te guiamos paso a paso para completar tu inscripción.
+            </p> al carrito
             </button>
           </div>
         </div>
@@ -279,6 +312,11 @@
               class="w-full bg-white hover:bg-zinc-100 text-zinc-900 font-semibold py-4 rounded-3xl transition-all"
             >
               Agregar al carrito
+            </button>
+            <p class="text-xs text-zinc-500 mt-4 leading-relaxed">
+              🛒 Agregá al carrito → Abrí tu carrito → Confirmá por WhatsApp 💬
+              <br />Te guiamos paso a paso para completar tu inscripción.
+            </p> al carrito
             </button>
           </div>
         </div>
@@ -528,6 +566,27 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeCart();
       });
+
+      // COUNTDOWN 1 DE ABRIL
+      const countdown = document.getElementById("countdown");
+      const targetDate = new Date("April 1, 2026 00:00:00").getTime();
+
+      setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          countdown.innerHTML = "INSCRIPCIONES CERRADAS";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
     </script>
   </body>
 </html>
