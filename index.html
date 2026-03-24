@@ -163,7 +163,7 @@
           <div class="p-8">
             <div class="flex justify-between items-start mb-4">
               <h2 class="text-2xl font-semibold text-pink-400">
-                Etapa 2 — Técnicas Avanzadas
+                Etapa 2 — Sistemas Mixtos
               </h2>
               <div
                 class="bg-gradient-to-br from-pink-500 to-pink-600 text-white font-bold px-5 py-2 rounded-2xl text-lg"
@@ -174,7 +174,6 @@
             <ul class="space-y-3 mb-8 text-zinc-300">
               <li class="flex items-center gap-3">✔ Gel, acrílico y polygel</li>
               <li class="flex items-center gap-3">✔ Capping</li>
-              <li class="flex items-center gap-3">✔ Bases niveladoras</li>
               <li class="flex items-center gap-3">✔ Tips</li>
             </ul>
             <button
@@ -198,7 +197,7 @@
           <div class="p-8">
             <div class="flex justify-between items-start mb-4">
               <h2 class="text-2xl font-semibold text-pink-400">
-                Etapa 3 — Nail Art Profesional
+                Etapa 3 — Técnicas mixtas Nails
               </h2>
               <div
                 class="bg-gradient-to-br from-pink-500 to-pink-600 text-white font-bold px-5 py-2 rounded-2xl text-lg"
@@ -427,11 +426,55 @@
       }
 
       function removeFromCart(index) {
+        if (index < 0 || index >= cart.length) return;
+
+        const removedItem = cart[index].name; // Para mostrar toast
         cart.splice(index, 1);
+
         updateCartCount();
-        openCart();
+
+        // Si el carrito quedó vacío, cerramos el modal
+        if (cart.length === 0) {
+          closeCart();
+          showToast("Carrito vacío");
+        } else {
+          // Re-renderizamos el modal correctamente
+          openCart();
+          showToast(`${removedItem} eliminado`);
+        }
       }
 
+      function openCart() {
+        if (cart.length === 0) {
+          showToast("Tu carrito está vacío");
+          closeCart(); // Aseguramos que se cierre si está vacío
+          return;
+        }
+
+        const container = document.getElementById("cart-items");
+        container.innerHTML = "";
+
+        cart.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.className =
+            "flex justify-between items-center bg-zinc-800 rounded-2xl p-4";
+          div.innerHTML = `
+            <div>
+              <p class="font-medium">${item.name}</p>
+              <p class="text-pink-400 font-semibold">$${item.price.toLocaleString("es-AR")}</p>
+            </div>
+            <button onclick="removeFromCart(${index})" 
+                    class="text-red-400 hover:text-red-500 text-2xl px-4 py-1 leading-none">✕</button>
+          `;
+          container.appendChild(div);
+        });
+
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById("cart-total").textContent =
+          `$${total.toLocaleString("es-AR")}`;
+
+        document.getElementById("cart-modal").classList.remove("hidden");
+      }
       function closeCart() {
         document.getElementById("cart-modal").classList.add("hidden");
       }
